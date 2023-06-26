@@ -1,11 +1,14 @@
-import Icon from '/favicon-32x32.png'
+import { useContext } from 'react'
 import { BiMoon } from 'react-icons/bi'
-
-const elements: string[] = ['Home', 'Projects', 'Contact']
+import LayoutContext from '../context'
+import Layouts from '../lib'
+import Icon from '/favicon-32x32.png'
 
 function Navbar() {
+  const { layout, setLayout } = useContext(LayoutContext)
+
   return (
-    <nav className="mt-2">
+    <nav className="my-2">
       <div className="flex items-center justify-between px-12">
         <div>
           <div className="flex items-center">
@@ -14,13 +17,16 @@ function Navbar() {
           </div>
         </div>
         <div>
-          <ul className="flex gap-6 font-bold text-xs uppercase tracking-wider">
-            {elements.map((el, index) => (
-              <li
-                key={index}
-                className="cursor-pointer hover:text-gray-600 active:text-gray-500 transition-colors"
-              >
-                {el}
+          <ul className="flex gap-6 font-bold">
+            {Layouts.map(({ id, name }, index) => (
+              <li key={id}>
+                <button
+                  type="button"
+                  className="cursor-pointer uppercase tracking-wider text-sm hover:text-gray-600 active:text-gray-500 transition-colors"
+                  onClick={() => setLayout && setLayout(Layouts[index])}
+                >
+                  {name}
+                </button>
               </li>
             ))}
           </ul>
@@ -29,6 +35,7 @@ function Navbar() {
           <BiMoon />
         </div>
       </div>
+      <div className="text-6xl text-center">{layout?.name}</div>
     </nav>
   )
 }
