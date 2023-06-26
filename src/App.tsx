@@ -1,20 +1,21 @@
 import { useState } from 'react'
-import { Navbar } from './components'
-import LayoutContext from './context'
-import Layouts from './lib'
-import type { Layout } from './lib'
+import { Navbar, Home } from './components'
+import SectionContext from './context'
+import Sections from './lib'
+import type { Section } from './lib'
 
 function App() {
-  const [layout, setLayout] = useState<Layout>(Layouts[0])
+  const [section, setSection] = useState<Section>(Sections[0])
 
   return (
-    <LayoutContext.Provider value={{ layout, setLayout }}>
+    <SectionContext.Provider value={{ section, setSection }}>
       <div className="w-screen h-screen overflow-auto bg-gray-200">
-        <div className="w-[60%] h-full mx-auto bg-white shadow-lg py-6">
+        <div className="w-[70%] h-full flex flex-col mx-auto bg-white shadow-lg py-6">
           <Navbar />
+          <Home />
         </div>
       </div>
-    </LayoutContext.Provider>
+    </SectionContext.Provider>
   )
 }
 export default App

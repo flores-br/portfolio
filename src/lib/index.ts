@@ -1,9 +1,9 @@
-export type Layout = {
+export type Section = {
   id: number
   name: string
 }
 
-const Layouts: Layout[] = [
+const Sections: Section[] = [
   {
     id: 1,
     name: 'Home',
@@ -18,4 +18,4 @@ const Layouts: Layout[] = [
   },
 ]
 
-export default Layouts
+export default Sections

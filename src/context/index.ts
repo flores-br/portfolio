@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import type { Layout } from '../lib'
+import type { Section } from '../lib'
 
-const LayoutContext = createContext<{
-  layout: Layout | undefined
-  setLayout: React.Dispatch<React.SetStateAction<Layout>> | undefined
-}>({ layout: undefined, setLayout: undefined })
+const SectionContext = createContext<{
+  section: Section | undefined
+  setSection: React.Dispatch<React.SetStateAction<Section>> | undefined
+}>({ section: undefined, setSection: undefined })
 
-export default LayoutContext
+export default SectionContext
