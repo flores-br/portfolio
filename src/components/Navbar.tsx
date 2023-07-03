@@ -1,14 +1,14 @@
 import { useContext } from 'react'
 import { BiMoon } from 'react-icons/bi'
 import SectionContext from '../context'
-import Sections from '../lib'
+import { Sections } from '../lib'
 import Icon from '/favicon-32x32.png'
 
 function Navbar() {
   const { setSection } = useContext(SectionContext)
 
   return (
-    <nav className="my-2">
+    <nav className="mt-3 mb-10">
       <div className="flex items-center justify-between px-12">
         <div>
           <div className="flex items-center">

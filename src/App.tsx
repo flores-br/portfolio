@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Navbar, Home } from './components'
 import SectionContext from './context'
-import Sections from './lib'
+import { Sections } from './lib'
 import type { Section } from './lib'
 
 function App() {
