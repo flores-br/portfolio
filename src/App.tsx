@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navbar, Home } from './components'
+import { Navbar, Home, Projects } from './components'
 import SectionContext from './context'
 import { Sections } from './lib'
 import type { Section } from './lib'
@@ -12,7 +12,7 @@ function App() {
       <div className="w-screen h-screen overflow-auto bg-gray-200">
         <div className="w-[70%] h-full flex flex-col mx-auto bg-white shadow-lg py-6">
           <Navbar />
-          <Home />
+          {section.name === 'Home' ? <Home /> : <Projects />}
         </div>
       </div>
     </SectionContext.Provider>

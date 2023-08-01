@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { BiMoon } from 'react-icons/bi'
 import SectionContext from '../context'
@@ -5,7 +6,7 @@ import { Sections } from '../lib'
 import Icon from '/favicon-32x32.png'
 
 function Navbar() {
-  const { setSection } = useContext(SectionContext)
+  const { section, setSection } = useContext(SectionContext)
 
   return (
     <nav className="mt-3 mb-10">
@@ -19,7 +20,7 @@ function Navbar() {
         <div>
           <ul className="flex gap-6 font-bold">
             {Sections.map(({ id, name }, index) => (
-              <li key={id}>
+              <li key={id} className="relative">
                 <button
                   type="button"
                   className="cursor-pointer uppercase tracking-wider text-sm hover:text-gray-600 active:text-gray-500 transition-colors"
@@ -27,6 +28,12 @@ function Navbar() {
                 >
                   {name}
                 </button>
+                {section?.id === id && (
+                  <motion.div
+                    className="absolute w-full left-0 -bottom-2 h-1 bg-green-700 rounded-md"
+                    layoutId="underline"
+                  />
+                )}
               </li>
             ))}
           </ul>
