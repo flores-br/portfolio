@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
-import { BiMoon } from 'react-icons/bi'
+import { BiMoon, BiSun } from 'react-icons/bi'
+import { useDarkMode } from 'usehooks-ts'
 import SectionContext from '../context'
 import { Sections } from '../lib'
 import Icon from '/favicon-32x32.png'
 
 function Navbar() {
   const { section, setSection } = useContext(SectionContext)
+  const { isDarkMode, toggle } = useDarkMode()
 
   return (
     <nav className="mt-3 mb-10">
@@ -38,8 +40,14 @@ function Navbar() {
             ))}
           </ul>
         </div>
-        <div className="border border-slate-400 rounded-full p-3 hover:bg-slate-400 active:bg-slate-500 transition-colors cursor-pointer">
-          <BiMoon />
+        <div
+          className="border border-slate-400 rounded-full p-3 hover:bg-slate-400 active:bg-slate-500 transition-colors cursor-pointer"
+          onClick={() => {
+            document.body.classList.toggle('dark')
+            toggle()
+          }}
+        >
+          {isDarkMode ? <BiMoon /> : <BiSun />}
         </div>
       </div>
     </nav>
