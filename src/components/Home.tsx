@@ -34,12 +34,17 @@ function Home() {
         <ul>
           {Socials.map(({ id, name, link, Icon }) => (
             <li key={id}>
-              <div className="flex items-center gap-5 mt-4">
+              <div className="flex items-center gap-2 mt-4">
                 <div>
-                  <Icon className="text-2xl" />
+                  <Icon className="w-6 h-6" />
                 </div>
-                <div>{name}</div>
-                <a href={link} target="blank" rel="noreferrer">
+                <div className="w-20">{name}</div>
+                <a
+                  className="w-fit"
+                  href={link}
+                  target="blank"
+                  rel="noreferrer"
+                >
                   {link}
                 </a>
               </div>
